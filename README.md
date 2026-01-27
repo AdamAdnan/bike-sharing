@@ -5,6 +5,16 @@ Dashboard ini menampilkan ringkasan metrik, pola waktu peminjaman, segmentasi pe
 
 ## 📁 Struktur Folder
 
+```
+project/
+│
+├── dashboard.py
+├── day.csv
+├── hour.csv
+├── requirements.txt
+└── README.md
+```
+
 ## Setup Environment - Anaconda
 ```
 conda create --name main-ds python=3.9
