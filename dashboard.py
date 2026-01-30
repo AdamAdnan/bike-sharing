@@ -30,6 +30,9 @@ if year_filter != "All":
     day_df = day_df[day_df["yr"] == year_val]
     hour_df = hour_df[hour_df["yr"] == year_val]
 
+day_df["dteday"] = pd.to_datetime(day_df["dteday"])
+hour_df["dteday"] = pd.to_datetime(hour_df["dteday"])
+
 # Filter Berdasarkan Tanggal (karena dteday sudah datetime)
 min_date = day_df["dteday"].min()
 max_date = day_df["dteday"].max()
