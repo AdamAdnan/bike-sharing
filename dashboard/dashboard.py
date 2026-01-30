@@ -11,8 +11,8 @@ st.set_page_config(layout="wide")
 # ======================
 @st.cache_data
 def load_data():
-    day = pd.read_csv("day.csv")
-    hour = pd.read_csv("hour.csv")
+    day = pd.read_csv("dashboard/day.csv")
+    hour = pd.read_csv("dashboard/hour.csv")
     return day, hour
 
 day_df, hour_df = load_data()
