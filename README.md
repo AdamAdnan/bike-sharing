@@ -6,7 +6,7 @@ Dashboard ini menampilkan ringkasan metrik, pola waktu peminjaman, segmentasi pe
 ## 📁 Struktur Folder
 
 ```
-project/
+bike-sharing/
 │
 ├── dashboard/
 │   ├── dashboard.py
@@ -17,8 +17,10 @@ project/
 │   ├── day.csv
 │   └── hour.csv
 │
+├── README.md
+├── notebook.ipynb
 ├── requirements.txt
-└── README.md
+└── url.txt
 ```
 
 ## Setup Environment - Anaconda
