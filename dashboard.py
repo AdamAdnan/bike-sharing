@@ -34,8 +34,8 @@ day_df["dteday"] = pd.to_datetime(day_df["dteday"])
 hour_df["dteday"] = pd.to_datetime(hour_df["dteday"])
 
 # Filter Berdasarkan Tanggal (karena dteday sudah datetime)
-min_date = day_df["dteday"].min()
-max_date = day_df["dteday"].max()
+min_date = day_df["dteday"].min().date()
+max_date = day_df["dteday"].max().date()
 
 date_range = st.sidebar.date_input(
     "Select Date Range",
@@ -47,6 +47,11 @@ date_range = st.sidebar.date_input(
 # Terapkan Filter Tanggal
 if isinstance(date_range, tuple):
     start_date, end_date = date_range
+    
+    # Konversi ke datetime64[ns] agar kompatibel
+    start_date = pd.to_datetime(start_date)
+    end_date = pd.to_datetime(end_date)
+    
     day_df = day_df[(day_df["dteday"] >= start_date) & (day_df["dteday"] <= end_date)]
     hour_df = hour_df[(hour_df["dteday"] >= start_date) & (hour_df["dteday"] <= end_date)]
 
