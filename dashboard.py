@@ -30,6 +30,23 @@ if year_filter != "All":
     day_df = day_df[day_df["yr"] == year_val]
     hour_df = hour_df[hour_df["yr"] == year_val]
 
+# Filter Berdasarkan Tanggal (karena dteday sudah datetime)
+min_date = day_df["dteday"].min()
+max_date = day_df["dteday"].max()
+
+date_range = st.sidebar.date_input(
+    "Select Date Range",
+    value=(min_date, max_date),
+    min_value=min_date,
+    max_value=max_date
+)
+
+# Terapkan Filter Tanggal
+if isinstance(date_range, tuple):
+    start_date, end_date = date_range
+    day_df = day_df[(day_df["dteday"] >= start_date) & (day_df["dteday"] <= end_date)]
+    hour_df = hour_df[(hour_df["dteday"] >= start_date) & (hour_df["dteday"] <= end_date)]
+
 # ======================
 # KPI Row
 # ======================
