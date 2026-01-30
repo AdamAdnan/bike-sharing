@@ -8,9 +8,15 @@ Dashboard ini menampilkan ringkasan metrik, pola waktu peminjaman, segmentasi pe
 ```
 project/
 │
-├── dashboard.py
-├── day.csv
-├── hour.csv
+├── dashboard/
+│   ├── dashboard.py
+│   ├── day.csv
+│   └── hour.csv
+│
+├── data/
+│   ├── day.csv
+│   └── hour.csv
+│
 ├── requirements.txt
 └── README.md
 ```
