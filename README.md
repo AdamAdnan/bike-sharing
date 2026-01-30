@@ -25,8 +25,11 @@ bike-sharing/
 
 ## Setup Environment - Anaconda
 ```
-conda create --name bike-dashboard python=3.10
+conda create --name bike-dashboard python=3.12
 conda activate bike-dashboard
+# Berali ke drive D tempat project disimpan
+D:
+cd bike-sharing-main
 pip install -r requirements.txt
 ```
 
