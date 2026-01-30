@@ -43,6 +43,14 @@ kpi3.metric("Registered Users", f"{total_registered:,}")
 # ======================
 # Row 1: Time + Segment
 # ======================
+def format_km(x, pos):
+    if x == 0:
+        return "0"
+    elif x >= 1_000_000:
+        return f"{x/1_000_000:.1f}M"
+    else:
+        return f"{x/1_000:.0f}K"
+        
 col1, col2 = st.columns(2)
 
 with col1:
@@ -54,9 +62,21 @@ with col1:
 
 with col2:
     fig2, ax2 = plt.subplots()
+    
     ax2.bar(["Casual", "Registered"], [total_casual, total_registered])
     ax2.set_title("Total Rentals by User Type")
+    # Range Y-axis (opsional, bisa kamu ubah)
+    ax2.set_ylim(0, 3000000)
+    ax2.set_yticks(np.arange(0, 3000001, 500000))
+
+    # Terapkan formatter ke Y-axis
+    ax2.yaxis.set_major_formatter(FuncFormatter(format_km))
+
     st.pyplot(fig2)
+    # fig2, ax2 = plt.subplots()
+    # ax2.bar(["Casual", "Registered"], [total_casual, total_registered])
+    # ax2.set_title("Total Rentals by User Type")
+    # st.pyplot(fig2)
 
 # ======================
 # Row 2: User Pattern
